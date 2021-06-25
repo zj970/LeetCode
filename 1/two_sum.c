@@ -33,15 +33,16 @@ int twoSum(int* nums, int numSize, int target, int* returnSize)
 	int *maps;
 	int i, j;
 	maps = nums;
-	printf("%d", *maps);
-	for (i = 1; i < numSize; i++,nums++)
+	//printf("%d", *maps);
+	for (i = 1; i < numSize; i++)
 	{
 		for (j = 0; j < i; j++)
 		{
 			if( (target - *(nums+i)) == *(maps+j) )
 			{
-				*returnSize = i;
-				*(returnSize+1) = j;
+				*returnSize = j + 1;
+				*(returnSize+1) = i +1;
+				printf("%d + %d = %d\n",*(nums+i), *(maps+j), target);
 				break;
 			}
 		}
