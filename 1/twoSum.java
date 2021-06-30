@@ -1,5 +1,6 @@
 import java.util.Scanner;
-import java.util.Hashtable;
+import java.util.*;
+
 
 public class twoSum {
 	public static void main(String[] arg){
@@ -21,7 +22,7 @@ public class twoSum {
 	}
 	//哈希表
 	public int[] two(int[] nums, int target) {
-		HashMap<Integer, Integer> hashtable = new HashMap<Integer, Integer>( );
+		Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>( );
 		for (int i = 0; i < nums.length; ++i) {
 			if (hashtable.containsKey(target - nums[i])) {
 				return new int[] {hashtable.get(target-nums[i]), i};
