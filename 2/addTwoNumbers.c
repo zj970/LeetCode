@@ -49,57 +49,36 @@ int main()
 
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 {
-	struct ListNode* l3;
-	int i = 0;
-	int j = 0;
-	
-	for (; l1->next++;i++) ;
-	for (; l2->next++;j++) ;
-	if (i < j)
-	{
-		while(l1->next--)
-		{
-			l3->val += l1->val + l2->val;
-			l2->next--;
-			if(l3->next > 10)
-			{
-				l3->val /=10;
-				l3->next++;
-				l3->val = 1;
-			}else
-			{
-				l3->next++;
-			}
-		}
-		while(l2->next--)
-		{
-			l3->next++;
-			l3->val = l2->val;
-		}
-	}else
-	{
 
-		while(l2->next--)
+	struct ListNode *head = NULL, *tail = NULL;
+	int carry = 0;
+	while (l1 | l2)
+	{
+		int n1 = l1 ? l1->val : 0;
+		int n2 = l2 ? l2->val : 0;
+		int sum = n1 + n2 + carry;
+		if (!head)
 		{
-			l3->val += l1->val + l2->val;
-			l1->next--;
-			if(l3->next > 10)
-			{
-				l3->val /=10;
-				l3->next++;
-				l3->val = 1;
-			}else
-			{
-				l3->next++;
-			}
+			head = tail = malloc(sizeof(struct ListNode));
+			tail->val = sum % 10;
+			tail->next = NULL;
 		}
-		while(l1->next--)
+		else
 		{
-			l3->next++;
-			l3->val = l2->val;
+			tail->next = malloc(sizeof(struct ListNode));
+			tail->next->val = sum % 10;
+			tail = tail->next;
+			tail->next = NULL;
+		}
+		carry = sum /10;
+		if (l1)
+		{
+			l1 = l1->next;
+		}
+
+		if (l2)
+		{
+			l2 = l2->next;
 		}
 	}
-
-	return l3;
-
 }
