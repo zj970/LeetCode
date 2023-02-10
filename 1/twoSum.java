@@ -33,10 +33,10 @@ public class twoSum {
 	}
 	//哈希表
 	public static int[] two(int[] nums, int target) {
-		Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>( );
+		Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
 		for (int i = 0; i < nums.length; ++i) {
 			if (hashtable.containsKey(target - nums[i])) {
-				return new int[] {hashtable.get(target-nums[i]+1), i+1};
+				return new int[] {hashtable.get(target-nums[i]), i};
 			}
 			hashtable.put(nums[i], i);
 		}
