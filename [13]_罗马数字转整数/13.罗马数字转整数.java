@@ -23,9 +23,10 @@ class Solution {
         int result = 0;
         int n = s.length();
         for (int i = 0; i < n; i++) {
-            result += charToInt(s.charAt(i));
             if(i+1 < s.length() && charToInt(s.charAt(i))<charToInt(s.charAt(i+1))){
-                result -= 2*charToInt(s.charAt(i));
+                result -= charToInt(s.charAt(i));
+            } else{
+                result += charToInt(s.charAt(i));
             }
             // if(i<n-1 && symbolValues.get(s.charAt(i))<symbolValues.get(s.charAt(i+1))){
             //     result -= symbolValues.get(s.charAt(i));
