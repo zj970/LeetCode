@@ -8,21 +8,13 @@
 // @lc code=start
 class Solution {
     public int climbStairs(int n) {
-        if (n / 2 == 0) {
-            return 0;
+        int p = 0, q = 0, r = 1;
+        for (int i = 1; i <= n; ++i) {
+            p = q; 
+            q = r; 
+            r = p + q;
         }
-        // 用排列组合去做
-        int target = n / 2;
-        if (n % 2 == 0) {
-            int stairs = 1;
-            for (int i = 1; i < target + 1; i++) {
-                for(int j = n-i; j>0;j--){
-                    stairs *=(n-j);
-                    stairs /=(j);
-                }
-                return stairs;
-            }
-        }
+        return r;
     }
 }
 // @lc code=end
