@@ -17,7 +17,24 @@
  * }
  */
 class Solution {
+    /**
+     * 返回合并的升序链表
+     * @param list1 升序链表1
+     * @param list2 升序链表2
+     * @return
+     */
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if(list1 == null){//当list1 == null说明只能返回list2
+            return list2;
+        } else if(list2 == null){//同上
+            return list1;
+        } else if (list1.val < list2.val){//采取递归判断两个升序链表的排序
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = mergeTwoLists(list1, list2.next);
+            return list2;
+        }
     }
 }
 // @lc code=end
