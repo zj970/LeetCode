@@ -23,19 +23,42 @@
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
+        // 递归
+        // List<Integer> res = new ArrayList<Integer>();
+        // preorder(root,res);
+        // return res;
+
+        // 迭代
         List<Integer> res = new ArrayList<Integer>();
-        preorder(root,res);
+        if(root == null)
+        {
+            return res;
+        }
+
+        Deque<TreeNode> stack  = new LinkedList<TreeNode>();
+        TreeNode node  = root;
+        while(!stack.isEmpty() || node != null)
+        {   while(node != null)
+            {
+                res.add(node.val);
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            node = node.right;
+        }
         return res;
     }
 
-    public void preorder(TreeNode root,List<Integer> res){
-        if  (root == null){
-            return;
-        }
-        res.add(root.val);
-        preorder(root.left,res);
-        preorder(root.right,res);
-    }
+    //  递归
+    // public void preorder(TreeNode root,List<Integer> res){
+    //     if  (root == null){
+    //         return;
+    //     }
+    //     res.add(root.val);
+    //     preorder(root.left,res);
+    //     preorder(root.right,res);
+    // }
 }
 // @lc code=end
 
