@@ -24,21 +24,47 @@
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         // 递归
+        // List<Integer> res = new ArrayList<Integer>();
+        // preorder(root,res);
+        // return res;
+
+        //迭代
         List<Integer> res = new ArrayList<Integer>();
-        preorder(root,res);
+        if(root == null)
+        {
+            return res;
+        }
+
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        TreeNode prev = null;
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            if (root.right == null || root.right == prev) {
+                res.add(root.val);
+                prev = root;
+                root = null;
+            } else {
+                stack.push(root);
+                root = root.right;
+            }
+        }
         return res;
     }
 
     //  递归
-    public void preorder(TreeNode root,List<Integer> res){
-        if  (root == null){
-            return;
-        }
-        preorder(root.left,res);
-        preorder(root.right,res);
-        res.add(root.val);
+    // public void preorder(TreeNode root,List<Integer> res){
+    //     if  (root == null){
+    //         return;
+    //     }
+    //     preorder(root.left,res);
+    //     preorder(root.right,res);
+    //     res.add(root.val);
 
-    }
+    // }
 }
 // @lc code=end
 
