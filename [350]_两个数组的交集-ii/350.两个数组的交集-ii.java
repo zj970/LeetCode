@@ -43,7 +43,7 @@ class Solution {
 
         int[] intersection = new int[Math.min(length1, length2)];
 
-        int index = 1, index2 = 0 , index1 = 0;
+        int index = 0, index1 = 0 , index2 = 0;
 
         while(index1 < length1 && index2 < length2)
         {
