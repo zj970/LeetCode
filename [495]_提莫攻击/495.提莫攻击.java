@@ -29,7 +29,7 @@ class Solution {
      */
         int ans = 0;
         int expired = 0;
-        for (int i = 0; i < timeSeries.Length; ++i) {
+        for (int i = 0; i < timeSeries.length; ++i) {
             if (timeSeries[i] >= expired) {
                 ans += duration;
             } else {
