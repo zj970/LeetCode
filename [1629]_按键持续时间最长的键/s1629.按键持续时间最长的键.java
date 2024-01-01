@@ -18,7 +18,7 @@ class Solution {
             if (cur > max) {
                 index = i;
                 max = cur;
-            }else if (cur == max && keysPressed.charAt(i) > keysPressed.charAt(index))) {
+            }else if (cur == max && keysPressed.charAt(i) > keysPressed.charAt(index)) {
                 index = i;
             }
         }
