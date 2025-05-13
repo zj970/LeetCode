@@ -2,3 +2,4 @@
 [${id}]_${kebab-case-name}/.lcpr_data/bricks.json
 [${id}]_${kebab-case-name}/.lcpr_data/group.json
 .lcpr_data/
+*.iml
