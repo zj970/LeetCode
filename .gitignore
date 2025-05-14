@@ -3,3 +3,5 @@
 [${id}]_${kebab-case-name}/.lcpr_data/group.json
 .lcpr_data/
 *.iml
+leetcode/out
+leetcode/.idea
