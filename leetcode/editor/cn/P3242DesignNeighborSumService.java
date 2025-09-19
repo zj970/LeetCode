@@ -81,7 +81,6 @@ package editor.cn;
  */
 public class P3242DesignNeighborSumService {
     public static void main(String[] args) {
-        Solution solution = new P3242DesignNeighborSumService().new Solution();
     }
 
 
