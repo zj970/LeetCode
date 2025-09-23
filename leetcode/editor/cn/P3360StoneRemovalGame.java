@@ -65,10 +65,12 @@ public class P3360StoneRemovalGame {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean canAliceWin(int n) {
-            int op = 10;
-            if (n < op) {
-                return false;
+            int i = 10;
+            for (; i <= n; i--) {
+                n -= i;
             }
+
+            return i % 2 != 0;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
